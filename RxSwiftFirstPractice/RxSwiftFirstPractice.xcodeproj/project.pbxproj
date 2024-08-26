@@ -14,6 +14,7 @@
 		EDFD68792C7C5CBF0067AAE7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EDFD68782C7C5CBF0067AAE7 /* Base */; };
 		EDFD687B2C7C5CC00067AAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDFD687A2C7C5CC00067AAE7 /* Assets.xcassets */; };
 		EDFD687E2C7C5CC00067AAE7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EDFD687D2C7C5CC00067AAE7 /* Base */; };
+		EDFD68862C7C5DDE0067AAE7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD68852C7C5DDE0067AAE7 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EDFD687A2C7C5CC00067AAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDFD687D2C7C5CC00067AAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDFD687F2C7C5CC00067AAE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDFD68852C7C5DDE0067AAE7 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				53BB9C86C23955343228C940 /* Pods-RxSwiftFirstPractice.debug.xcconfig */,
 				7DBCEB8229DF0AA9B4842812 /* Pods-RxSwiftFirstPractice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +84,7 @@
 			children = (
 				EDFD68712C7C5CBF0067AAE7 /* AppDelegate.swift */,
 				EDFD68732C7C5CBF0067AAE7 /* SceneDelegate.swift */,
+				EDFD68852C7C5DDE0067AAE7 /* ViewModel.swift */,
 				EDFD68752C7C5CBF0067AAE7 /* ViewController.swift */,
 				EDFD68772C7C5CBF0067AAE7 /* Main.storyboard */,
 				EDFD687A2C7C5CC00067AAE7 /* Assets.xcassets */,
@@ -209,6 +211,7 @@
 			files = (
 				EDFD68762C7C5CBF0067AAE7 /* ViewController.swift in Sources */,
 				EDFD68722C7C5CBF0067AAE7 /* AppDelegate.swift in Sources */,
+				EDFD68862C7C5DDE0067AAE7 /* ViewModel.swift in Sources */,
 				EDFD68742C7C5CBF0067AAE7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +365,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftFirstPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -390,6 +394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftFirstPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

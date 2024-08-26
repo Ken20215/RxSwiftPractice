@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
+    private var viewModel = ViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        bind()
     }
+}
 
-
+extension ViewController {
+    func bind() {
+        viewModel.hellorWorldObservable
+            .subscribe(onNext: { value in
+                print("value = \(value)")
+            })
+            .disposed(by: disposeBag)
+        viewModel.updateItem()
+    }
 }
 
