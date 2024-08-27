@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftNextPractice {
+  umbrella header "Pods-RxSwiftNextPractice-umbrella.h"
+
+  export *
+  module * { export * }
+}
