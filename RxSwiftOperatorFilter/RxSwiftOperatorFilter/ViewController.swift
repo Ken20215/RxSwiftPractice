@@ -27,12 +27,7 @@ extension ViewController {
         alertLabel.isHidden = true
         nameTextFild.rx.text
             .orEmpty
-            .map { text -> String in
-                if text.count > 10 {
-                    return String(text.prefix(10))
-                }
-                return text
-            }
+            .map { return $0.count > 10 ? String($0.prefix(10)) : $0 }
             .bind(to: nameTextFild.rx.text)
             .disposed(by: disposeBag)
         
