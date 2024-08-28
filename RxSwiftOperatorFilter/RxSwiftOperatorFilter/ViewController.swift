@@ -18,12 +18,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
 }
 
 extension ViewController {
     func bind() {
+        alertLabel.isHidden = true
+        nameTextFild.rx.text
+            .orEmpty
+            .map { text -> String in
+                if text.count > 10 {
+                    return String(text.prefix(10))
+                }
+                return text
+            }
+            .bind(to: nameTextFild.rx.text)
+            .disposed(by: disposeBag)
         
+        nameTextFild.rx.text
+            .map { text -> Int in
+                guard let text = text else { return 0 }
+                return text.count
+            }
+            .map{ $0 < 10 }
+            .bind(to: alertLabel.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 }
 
