@@ -31,6 +31,21 @@ extension ViewController {
             .bind(to: nameTextFild.rx.text)
             .disposed(by: disposeBag)
         
+        /*
+         *** MARK: .mapの$0はストリームから来たデータで、それを対象にしてデータを変換します。
+         ここはnameTextFild.rx.textからきた文字データを.mapでルールを指定してます。文字が10文字超えたらラベルを表示させてます。
+         nameTextFild.rx.textのデータです。nameTextFild.rx.textはObservable<String?>型の値が自動的に返却されます。
+         
+         *** MARK: bindメソッドはストリームの型に応じてプロパティやメソッドにデータバインディングできます。***
+         　　 例えば.mapなどStringが来たらStrig、BoolならBoolの値をデータバインディングする。
+         */
+        
+        /*
+         一般的な流れとしては、以下のようになります：
+            Observable: 最初に観測対象となるストリーム（例えば、テキストフィールドのテキストなど）を取得します。
+                 .map : ストリームのデータを変換します。
+            .bind(to:): 変換されたデータをプロパティやメソッドにバインドします。
+         */
         nameTextFild.rx.text
             .map { $0?.count ?? 0 < 10 }
             .bind(to: alertLabel.rx.isHidden)
