@@ -37,11 +37,7 @@ extension ViewController {
             .disposed(by: disposeBag)
         
         nameTextFild.rx.text
-            .map { text -> Int in
-                guard let text = text else { return 0 }
-                return text.count
-            }
-            .map{ $0 < 10 }
+            .map { $0?.count ?? 0 < 10 }
             .bind(to: alertLabel.rx.isHidden)
             .disposed(by: disposeBag)
     }
