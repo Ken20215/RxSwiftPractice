@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-wJ-sJT">
-                                <rect key="frame" x="76.666666666666686" y="326.66666666666669" width="240" height="199.00000000000006"/>
+                                <rect key="frame" x="76.666666666666686" y="291" width="240" height="270"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-Wf-fgS">
                                         <rect key="frame" x="113.33333333333333" y="0.0" width="13.333333333333329" height="24"/>
@@ -26,9 +26,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-Vl-ZKQ">
-                                        <rect key="frame" x="0.0" y="54.000000000000007" width="240" height="28.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="54" width="240" height="52"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="SkB-TS-geb"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="seH-bH-dlQ"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,10 +44,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSa-4p-cJU">
-                                        <rect key="frame" x="0.0" y="112.33333333333331" width="240" height="28.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="136" width="240" height="52"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="66v-pW-b6m"/>
+                                            <constraint firstAttribute="height" constant="52" id="JY6-FV-oN8"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -60,9 +62,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDq-ww-fvA">
-                                        <rect key="frame" x="0.0" y="170.66666666666663" width="240" height="28.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="218" width="240" height="52"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="XJo-8F-JCE"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="d6W-Wa-1xH"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +89,12 @@
                             <constraint firstItem="nAB-wJ-sJT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dri-c8-eVq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countDownButton" destination="sSa-4p-cJU" id="uAF-k5-9xO"/>
+                        <outlet property="countLabel" destination="jxd-Wf-fgS" id="nWw-Ke-ywX"/>
+                        <outlet property="countUpButton" destination="dW7-Vl-ZKQ" id="imT-Sr-Jb7"/>
+                        <outlet property="resetButton" destination="dDq-ww-fvA" id="lov-br-3BO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
