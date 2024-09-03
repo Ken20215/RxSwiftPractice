@@ -61,7 +61,8 @@ final class CounterRxViewModel: CounterViewModelType, CounterVieModelInput, Coun
     var counterText: Driver<Int>
     
     /*
-     ***  MARK: BehaviorRelayを使用することで常に最新の状態を確認することができる。 ***
+     ***  MARK: BehaviorRelayの概念 ***
+     BehaviorRelayを使用することで常に最新の状態を確認することができる。
      天気アプリに似てます。これはアプリの初期設定が'晴れ'だったとしても、アプリを開く直前に雨が降れば即座にUI側に雨の状態を届けるメリットがあります。
      Observableとの違いはerrorやcompleteの処理を書く必要がなく、シンプルに最新のデータのみ通知させることができます。
      */
