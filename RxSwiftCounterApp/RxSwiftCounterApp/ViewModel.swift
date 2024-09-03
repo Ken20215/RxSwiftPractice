@@ -10,27 +10,26 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
 /*
  *** MARK: CounterVieModelInputはカウンターボタンの入力を管理する構造体です。 ***
-     例えるならリモンコンとリモコンに登録されているチャンネルです。
-     CounterVieModelInputというリモコンの中に、カウンターをup、douwn、resetするボタンが配置されているイメージです。
- 　　 テレビのリモコンと同様に配置したボタンを押すことで、テレビの画面の動作が変わるように、ここでもObservableによってボタンイベントを発火させる。
+ 例えるならリモンコンとリモコンに登録されているチャンネルです。
+ CounterVieModelInputというリモコンの中に、カウンターをup、douwn、resetするボタンが配置されているイメージです。
+ テレビのリモコンと同様に配置したボタンを押すことで、テレビの画面の動作が変わるように、ここでもObservableによってボタンイベントを発火させる。
  */
-struct CounterVieModelInput {
-    let countUpButton: Observable<Void>
-    let countDownButton: Observable<Void>
-    let countResetButton: Observable<Void>
+protocol CounterVieModelInput: AnyObject {
+    var countUpButton: PublishRelay<Void> { get }
+    var countDownButton: PublishRelay<Void> { get }
+    var countResetButton: PublishRelay<Void> { get }
 }
 
 /*
  *** MARK: DriverはUIの更新に使用する際に利用し、エラーを発生させず常に最新の状態を安全にメインスレッドに届けます。***
-     Driverの概念は信号機やバス時刻表の概念に似てます。常に最新のデータ状況を届けることができます。
-     そしてエラーとはnilの状態です。エラーを発生させず常に最新の状態を保つということは、バス停で例えるとバスが遅延し中々到着しない場合に「遅延してます」と電光掲示板のディスプレイに表示させます。
-     エラーを発生させないとは実際にエラーを完全に発生させないという訳ではなく、「エラーが発生しても何かしらエラーを無視してデータを常に送り続けることができる」という意味です。
+ Driverの概念は信号機やバス時刻表の概念に似てます。常に最新のデータ状況を届けることができます。
+ そしてエラーとはnilの状態です。エラーを発生させず常に最新の状態を保つということは、バス停で例えるとバスが遅延し中々到着しない場合に「遅延してます」と電光掲示板のディスプレイに表示させます。
+ エラーを発生させないとは実際にエラーを完全に発生させないという訳ではなく、「エラーが発生しても何かしらエラーを無視してデータを常に送り続けることができる」という意味です。
  */
-protocol CounterViewmodelOutput {
-    var counterText: Driver<String?> { get }
+protocol CounterViewmodelOutput: AnyObject {
+    var counterText: Driver<Int> { get }
 }
 
 /*
@@ -39,73 +38,71 @@ protocol CounterViewmodelOutput {
  アクセルを踏むとメーターが動き、ブレーキを踏むとメーターが下がります。またハンドルを右に切ると右に車が動きます。
  */
 protocol CounterViewModelType {
-    var outputs: CounterViewmodelOutput? { get }
-    func setup(input: CounterVieModelInput)
+    var inputs: CounterVieModelInput { get }
+    var outputs: CounterViewmodelOutput { get }
 }
 
-class CounterRxViewModel: CounterViewModelType {
-    var outputs: CounterViewmodelOutput?
+final class CounterRxViewModel: CounterViewModelType, CounterVieModelInput, CounterViewmodelOutput {
+    
+    var inputs: CounterVieModelInput { return self }
+    var outputs: CounterViewmodelOutput { return self }
+    
+    // MARK: - Input Sources
+    var countUpButton = PublishRelay<Void>()
+    var countDownButton = PublishRelay<Void>()
+    var countResetButton = PublishRelay<Void>()
+    
+    // MARK: - Outputs Sources
+    /*
+     *** MARK: Driverの概念 ***
+     ユーザーがボタンをタップしたとき、そのアクションに応じてラベルのテキストやボタンの状態を更新する際に使います。
+     UI要素の更新を安全に行いたい場合に使われます。例えば、Driverを使用してボタンの有効化/無効化を行う場合など。
+     */
+    var counterText: Driver<Int>
     
     /*
      ***  MARK: BehaviorRelayを使用することで常に最新の状態を確認することができる。 ***
-          天気アプリに似てます。これはアプリの初期設定が'晴れ'だったとしても、アプリを開く直前に雨が降れば即座にUI側に雨の状態を届けるメリットがあります。
-          Observableとの違いはerrorやcompleteの処理を書く必要がなく、シンプルに最新のデータのみ通知させることができます。
+     天気アプリに似てます。これはアプリの初期設定が'晴れ'だったとしても、アプリを開く直前に雨が降れば即座にUI側に雨の状態を届けるメリットがあります。
+     Observableとの違いはerrorやcompleteの処理を書く必要がなく、シンプルに最新のデータのみ通知させることができます。
      */
     private let countRelay = BehaviorRelay<Int>(value: 0)
-    private let initialcount = 0
     private let disposeBag = DisposeBag()
     
     init() {
-        self.outputs = self
+        countUpButton
+            .withLatestFrom(countRelay)
+            .map { $0 + 1 }
+            .bind(to: countRelay)
+            .disposed(by: disposeBag)
+        
+        countDownButton
+            .withLatestFrom(countRelay)
+            .map { $0 - 1 }
+            .bind(to: countRelay)
+            .disposed(by: disposeBag)
+        
+        countResetButton
+            .map { 0 }
+            .bind(to: countRelay)
+            .disposed(by: disposeBag)
+        
+        counterText = countRelay
+            .asDriver(onErrorJustReturn: 0)
+            .distinctUntilChanged()
     }
-    
-    func setup(input: CounterVieModelInput) {
-        input.countUpButton
-            .subscribe( onNext: { _ in
-                incrementCount()
-            })
-            .disposed(by: disposeBag)
-        
-        input.countDownButton
-            .subscribe( onNext: { _ in
-                decrementCount()
-            })
-            .disposed(by: disposeBag)
-        
-        input.countResetButton
-            .subscribe( onNext: { _ in
-                resetCount()
-            })
-            .disposed(by: disposeBag)
-        
-        func incrementCount() {
-            let count = countRelay.value + 1
-            countRelay.accept(count)
-        }
-        
-        func decrementCount() {
-            let count = countRelay.value - 1
-            countRelay.accept(count)
-        }
-        
-        func resetCount() {
-            countRelay.accept(initialcount)
-        }
-    }
-}
-
-extension CounterRxViewModel: CounterViewmodelOutput {
     /*
-     処理の流れは、Driver<String?>で定義しているcounterTextにデータを入れ込みます。
-     DriverはUIをエラーを発生させず、常に最新の状態を届けます。Strig型の最新の値をUI側に流します。
-     countRelayはInt型ですので、.mapでブロック内の「"Rxパターン\($0)"」というStrig型の文字列を返却します。
-     そしてこれがStrig型のデータですので、asDriverでDriver型に変換し、counterTextにデータを流します。
-    *** MARK: bindとの違い ***
-     bindと違うのは、bindは実際にUI側でデータを入れるものです。これはあくまでUIバインディングに適した値に変換するためだけに使用されます。
+     // *** MARK: bindとdriveの違い ***
+     bindはObservableのメソッドdriveはDriveのメソッドです。もう少し詳細に書くとdriveはObservableの一種です。
+     bind vs drive
+     
+     *** bind ***
+     bindはUI要素に限らず、BehaviorSubjectやRelayなどにもデータをバインディングすることができる。
+     API呼び出しや非同期処理の結果を扱う際にも使用でき、幅広く利用することができます。
+     
+     **** drive ***
+     対してdriveはUI要素に特化してます。エラー処理を無視して、データを流すことができます。
+     ボタンを押したらテキストやボタンなど状態を変更させ、何かしらUIの更新に向いているメソッドです。
+     
      */
-    var counterText: Driver<String?> {
-        return countRelay
-            .map { "Rxパターン\($0)" }
-            .asDriver(onErrorJustReturn: nil)
-    }
+    
 }

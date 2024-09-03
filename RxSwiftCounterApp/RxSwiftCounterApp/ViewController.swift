@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private weak var countUpButton: UIButton!
     @IBOutlet private weak var countDownButton: UIButton!
@@ -21,20 +21,27 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewModel()
+        bind()
     }
+}
 
-    private func setupViewModel() {
-        let input = CounterVieModelInput(countUpButton: countUpButton.rx.tap.asObservable(),
-                                         countDownButton: countDownButton.rx.tap.asObservable(),
-                                         countResetButton: resetButton.rx.tap.asObservable())
+extension ViewController {
+    func bind() {
+        countUpButton.rx.tap
+            .bind(to: viewModel.inputs.countUpButton)
+            .disposed(by: disposeBag)
         
-        viewModel.setup(input: input)
+        countDownButton.rx.tap
+            .bind(to: viewModel.inputs.countDownButton)
+            .disposed(by: disposeBag)
         
-        viewModel.outputs?.counterText
+        resetButton.rx.tap
+            .bind(to: viewModel.inputs.countResetButton)
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.counterText
+            .map { String($0) }
             .drive(countLabel.rx.text)
             .disposed(by: disposeBag)
     }
-
 }
-
