@@ -41,14 +41,24 @@ class StepperCountViewModel: StepperCountInput, StepperCountOutput, StepperCount
     var disposeBag = DisposeBag()
     
     init () {
+        tapButton
+            .withLatestFrom(countNumber)
+            .filter { $0 < 10 }
+            .map { $0 + 1 }
+            .bind(to: countNumber)
+            .disposed(by: disposeBag)
+        
+        resetButton
+            .map { _ in 0 }
+            .bind(to: countNumber)
+            .disposed(by: disposeBag)
         
         tapLabel = countNumber
             .asDriver(onErrorJustReturn: 0)
             .distinctUntilChanged()
         
         bannerLabel = tapLabel
-            .map { $0 > 100 }
+            .map { $0 >= 10 }
             .distinctUntilChanged()
-            
     }
 }

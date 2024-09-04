@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="K4T-BW-EAu">
                                 <rect key="frame" x="36" y="278.33333333333331" width="321" height="75.666666666666686"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100回タップしたました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06X-LW-2mC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10回タップしたました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06X-LW-2mC">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" systemColor="systemPinkColor"/>
@@ -87,6 +87,12 @@
                             <constraint firstItem="9ho-t8-w58" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vMK-ZA-89X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bannerlabel" destination="06X-LW-2mC" id="t5Y-SL-5Ql"/>
+                        <outlet property="countUpButton" destination="Mhf-bs-5j5" id="dIS-Ne-vCa"/>
+                        <outlet property="counterlabel" destination="D7a-zk-GfP" id="VhX-na-vEm"/>
+                        <outlet property="resetButton" destination="dr3-Zo-Egh" id="z2r-RO-r8C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
