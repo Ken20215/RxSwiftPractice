@@ -16,7 +16,7 @@ final class CounterViewController: UIViewController {
     @IBOutlet private weak var countDownButton: UIButton!
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var countLabel: UILabel!
-    let viewModel = counterViewModel()
+    let viewModel = CounterViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {

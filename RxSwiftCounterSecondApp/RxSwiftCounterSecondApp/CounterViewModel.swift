@@ -10,25 +10,25 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol counterViewModelInput: AnyObject {
+protocol CounterViewModelInput: AnyObject {
     var counterUpButton: PublishRelay<Void> { get }
     var counterDowenButton: PublishRelay<Void> { get }
     var resetButton: PublishRelay<Void> { get }
 }
 
-protocol counterViewModelOutput: AnyObject {
+protocol CounterViewModelOutput: AnyObject {
     var counterLabel: Driver<Int> { get }
 }
 
-protocol counterViewModelType: AnyObject {
-    var input: counterViewModelInput { get }
-    var output: counterViewModelOutput { get }
+protocol CounterViewModelType: AnyObject {
+    var input: CounterViewModelInput { get }
+    var output: CounterViewModelOutput { get }
 }
 
-final class counterViewModel: counterViewModelInput, counterViewModelOutput, counterViewModelType {
+final class CounterViewModel: CounterViewModelInput, CounterViewModelOutput, CounterViewModelType {
     
-    var input: counterViewModelInput { return self }
-    var output: counterViewModelOutput { return self }
+    var input: CounterViewModelInput { return self }
+    var output: CounterViewModelOutput { return self }
     
     var counterUpButton = PublishRelay<Void>()
     var counterDowenButton = PublishRelay<Void>()
