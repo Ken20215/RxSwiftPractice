@@ -10,25 +10,25 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol StepperCountInput: AnyObject {
+protocol ViewModelInput: AnyObject {
     var tapButton: PublishRelay<Void> { get }
     var resetButton: PublishRelay<Void> { get }
 }
 
-protocol StepperCountOutput: AnyObject {
+protocol ViewModelOutput: AnyObject {
     var tapLabel: Driver<Int> { get }
     var bannerLabel: Driver<Bool> { get }
 }
 
-protocol StepperCountType: AnyObject {
-    var input: StepperCountInput { get }
-    var output: StepperCountOutput { get }
+protocol ViewModelType: AnyObject {
+    var input: ViewModelInput { get }
+    var output: ViewModelOutput { get }
 }
 
-class StepperCountViewModel: StepperCountInput, StepperCountOutput, StepperCountType {
+class ViewModel: ViewModelInput, ViewModelOutput, ViewModelType {
     
-    var input: StepperCountInput { return self }
-    var output: StepperCountOutput { return self }
+    var input: ViewModelInput { return self }
+    var output: ViewModelOutput { return self }
     
     
     var tapButton = PublishRelay<Void>()

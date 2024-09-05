@@ -16,7 +16,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var counterlabel: UILabel!
     @IBOutlet private weak var countUpButton: UIButton!
     @IBOutlet private weak var resetButton: UIButton!
-    let viewModel = StepperCountViewModel()
+    let viewModel = ViewModel()
     let disposedBag = DisposeBag()
     
     override func viewDidLoad() {
