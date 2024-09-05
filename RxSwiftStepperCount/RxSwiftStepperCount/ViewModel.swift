@@ -10,54 +10,53 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ViewModelInput: AnyObject {
+protocol ViewModelInputs: AnyObject {
     var tapButton: PublishRelay<Void> { get }
     var resetButton: PublishRelay<Void> { get }
 }
 
-protocol ViewModelOutput: AnyObject {
-    var tapLabel: Driver<Int> { get }
-    var bannerLabel: Driver<Bool> { get }
+protocol ViewModelOutputs: AnyObject {
+    var tapCountLabel: Driver<Int> { get }
+    var isBannerVisible: Driver<Bool> { get }
 }
 
 protocol ViewModelType: AnyObject {
-    var input: ViewModelInput { get }
-    var output: ViewModelOutput { get }
+    var input: ViewModelInputs { get }
+    var output: ViewModelOutputs { get }
 }
 
-class ViewModel: ViewModelInput, ViewModelOutput, ViewModelType {
+class ViewModel: ViewModelInputs, ViewModelOutputs, ViewModelType {
     
-    var input: ViewModelInput { return self }
-    var output: ViewModelOutput { return self }
-    
-    
+    var input: ViewModelInputs { return self }
+    var output: ViewModelOutputs { return self }
+
     var tapButton = PublishRelay<Void>()
     var resetButton = PublishRelay<Void>()
     
-    var tapLabel: Driver<Int>
-    var bannerLabel: Driver<Bool>
+    var tapCountLabel: Driver<Int>
+    var isBannerVisible: Driver<Bool>
     
-    var countNumber = BehaviorRelay<Int>(value: 0)
+    var count = BehaviorRelay<Int>(value: 0)
     var disposeBag = DisposeBag()
     
     init () {
         tapButton
-            .withLatestFrom(countNumber)
+            .withLatestFrom(count)
             .filter { $0 < 10 }
             .map { $0 + 1 }
-            .bind(to: countNumber)
+            .bind(to: count)
             .disposed(by: disposeBag)
         
         resetButton
             .map { _ in 0 }
-            .bind(to: countNumber)
+            .bind(to: count)
             .disposed(by: disposeBag)
         
-        tapLabel = countNumber
+        tapCountLabel = count
             .asDriver(onErrorJustReturn: 0)
             .distinctUntilChanged()
         
-        bannerLabel = tapLabel
+        isBannerVisible = tapCountLabel
             .map { $0 >= 10 }
             .distinctUntilChanged()
     }

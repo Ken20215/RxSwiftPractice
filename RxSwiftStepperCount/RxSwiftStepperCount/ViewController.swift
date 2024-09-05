@@ -35,12 +35,12 @@ extension ViewController {
             .bind(to: viewModel.input.resetButton)
             .disposed(by: disposedBag)
         
-        viewModel.output.tapLabel
+        viewModel.output.tapCountLabel
             .map { String($0) }
             .drive(counterlabel.rx.text)
             .disposed(by: disposedBag)
         
-        viewModel.output.bannerLabel
+        viewModel.output.isBannerVisible
             .map { !$0 }
             .drive(bannerlabel.rx.isHidden)
             .disposed(by: disposedBag)
