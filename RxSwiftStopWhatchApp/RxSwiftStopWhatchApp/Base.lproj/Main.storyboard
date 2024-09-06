@@ -17,24 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="LHm-LT-V6n">
-                                <rect key="frame" x="25" y="324.66666666666669" width="343" height="202.66666666666669"/>
+                                <rect key="frame" x="23.666666666666657" y="241.66666666666666" width="346" height="368.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z98-0x-wOy">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="95.666666666666671"/>
+                                        <rect key="frame" x="13" y="0.0" width="320" height="261.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8Q-N3-jV8">
-                                                <rect key="frame" x="141" y="0.0" width="61.333333333333343" height="28.666666666666668"/>
+                                                <rect key="frame" x="129.33333333333334" y="0.0" width="61.333333333333343" height="28.666666666666668"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H1j-ss-w4J">
-                                                <rect key="frame" x="0.0" y="45.666666666666629" width="343" height="50"/>
-                                            </datePicker>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5Y-al-Sur">
+                                                <rect key="frame" x="0.0" y="45" width="320" height="216"/>
+                                            </pickerView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="Ha0-C7-xRK">
-                                        <rect key="frame" x="65" y="122.66666666666663" width="213" height="80"/>
+                                        <rect key="frame" x="0.0" y="288.66666666666674" width="346" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUJ-VP-DcL">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -45,7 +45,7 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                <buttonConfiguration key="configuration" style="plain" title="START">
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
                                                 </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
@@ -55,12 +55,27 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE5-Sh-Tae">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhe-xh-vtc">
                                                 <rect key="frame" x="133" y="0.0" width="80" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="STOP">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskYoBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE5-Sh-Tae">
+                                                <rect key="frame" x="266" y="0.0" width="80" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                <buttonConfiguration key="configuration" style="plain" title="RESET">
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
                                                 </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
@@ -82,6 +97,13 @@
                             <constraint firstItem="LHm-LT-V6n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GZ6-6Z-tCG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countLabel" destination="G8Q-N3-jV8" id="aXv-ZT-Znv"/>
+                        <outlet property="datePicker" destination="x5Y-al-Sur" id="Thm-7S-S6K"/>
+                        <outlet property="resetButton" destination="hE5-Sh-Tae" id="efj-Fb-K6F"/>
+                        <outlet property="startButton" destination="rUJ-VP-DcL" id="bPj-vN-6Mv"/>
+                        <outlet property="stopButton" destination="Rhe-xh-vtc" id="4Qc-Km-Adv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,6 +116,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
