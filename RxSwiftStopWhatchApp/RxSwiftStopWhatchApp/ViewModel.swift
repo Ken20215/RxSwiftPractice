@@ -43,16 +43,11 @@ class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOu
     
     init() {
         // TimerManagerを初期化し、countdownTimeを渡す
-        timerManager = TimerManager(countdownTime: countdownTime)
-        timerLabel = Driver.empty()
-        timerLabel = timerManager.countdownTimeObservable
-            .map { [weak self] time in
-                guard let self = self else { return "" }
-                let remainCount = time - self.countdownTime.value
-                return "残り \(Int(remainCount)) 秒"
-            }
-            .asDriver(onErrorJustReturn: "")
-
+        timerManager = TimerManager()
+        timerLabel = countdownTime
+            .map { "残り \($0) 秒" }
+            .asDriver(onErrorJustReturn: "Error")
+        
         // タイマーを開始する
         startButton
             .subscribe(onNext: { [weak self] in
@@ -71,6 +66,7 @@ class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOu
         resetButton
             .subscribe(onNext: { [weak self] in
                 self?.timerManager.resetTimer()
+                self?.countdownTime.accept(TimeInterval(self?.timerManager.displayUpdate() ?? 0))
             })
             .disposed(by: disposeBag)
     }

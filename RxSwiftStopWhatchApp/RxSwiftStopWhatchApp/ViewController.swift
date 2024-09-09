@@ -18,20 +18,22 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var datePicker: UIPickerView!
     @IBOutlet private weak var countLabel: UILabel!
     let settingArray = [10, 20, 30, 40, 50, 60]
+    let settingKey = "timer_value"
     let viewModel = TimerViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countLabel.text = "残り\(settingArray[0])秒"
         datePicker.delegate = self
         datePicker.dataSource = self
+        bind()
+        timeSetting()
     }
 }
 
 extension ViewController {
     func bind() {
-        stopButton.rx.tap
+        startButton.rx.tap
             .bind(to: viewModel.input.startButton)
             .disposed(by: disposeBag)
         
@@ -44,10 +46,23 @@ extension ViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.timerLabel
-            .map { String($0) }
             .drive(countLabel.rx.text)
             .disposed(by: disposeBag)
         
+    }
+    
+    func timeSetting() {
+        let settings = UserDefaults.standard
+        let timerValue = settings.integer(forKey: settingKey)
+        let initialTime = timerValue != 0 ? timerValue : 10
+        countLabel.text = "残り\(initialTime)秒"
+        viewModel.input.countdownTime.accept(TimeInterval(initialTime))
+        
+        for row in 0..<settingArray.count {
+            if settingArray[row] == initialTime {
+                datePicker.selectRow(row, inComponent: 0, animated: true)
+            }
+        }
     }
 }
 
@@ -69,6 +84,8 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedValue = settingArray[row]
         countLabel.text = "残り\(selectedValue)秒"
+        UserDefaults.standard.set(selectedValue, forKey: settingKey)
+        viewModel.input.countdownTime.accept(TimeInterval(selectedValue))
     }
     
 }

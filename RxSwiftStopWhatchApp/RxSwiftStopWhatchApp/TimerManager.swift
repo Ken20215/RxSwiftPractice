@@ -11,27 +11,16 @@ import RxSwift
 import RxCocoa
 
 class TimerManager {
+    
     private var timer: Timer?
     private var count: Int = 0
-    private let countdownTime: BehaviorRelay<TimeInterval>
-    
-    // 初期化時にcountdownTimeを受け取る
-    init(countdownTime: BehaviorRelay<TimeInterval>) {
-        self.countdownTime = countdownTime
-    }
-    
-    // タイマーが進行する時間を管理するObservable
-    var countdownTimeObservable: Observable<TimeInterval> {
-        return countdownTime.asObservable()
-    }
-    
+    let settingKey = "timer_value"
     
     // タイマーを開始する処理
     func startTimer() {
         if let nowTimer = timer, nowTimer.isValid {
             return
         }
-        
         // タイマーをスタート
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                      target: self,
@@ -41,10 +30,10 @@ class TimerManager {
     }
     
     // タイマーが1秒ごとに呼ばれる処理
-    @objc private func timerInterrupt(_ timer: Timer) {
+    @objc func timerInterrupt(_ timer: Timer) {
         count += 1
-        let remainCount = countdownTime.value - Double(count)
-        if remainCount <= 0 {
+        
+        if displayUpdate() <= 0 {
             count = 0
             // タイマー停止
             timer.invalidate()
@@ -53,20 +42,24 @@ class TimerManager {
     
     // タイマーを停止する処理
     func stopTimer() {
-        if let nowTimer = timer, nowTimer.isValid {
-            nowTimer.invalidate()
+        if let nowTimer = timer {
+            if nowTimer.isValid {
+                nowTimer.invalidate()
+            }
         }
     }
     
     // タイマーをリセットする処理
     func resetTimer() {
         count = 0
-        countdownTime.accept(countdownTime.value) // 表示を更新
+        let _ = displayUpdate()
     }
     
-    // タイマーの時間を設定する
-    func setCountdownTime(_ time: TimeInterval) {
-        countdownTime.accept(time)
+    func displayUpdate() -> Int {
+        let settings = UserDefaults.standard
+        let timerValue = settings.integer(forKey: settingKey)
+        let remainCount = timerValue - count
+        return remainCount
     }
 }
 
