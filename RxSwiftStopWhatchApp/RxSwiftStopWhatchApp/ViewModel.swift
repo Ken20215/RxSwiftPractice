@@ -43,7 +43,7 @@ class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOu
     
     init() {
         // TimerManagerを初期化し、countdownTimeを渡す
-        timerManager = TimerManager()
+        timerManager = TimerManager(countdownTime: countdownTime)
         timerLabel = countdownTime
             .map { "残り \($0) 秒" }
             .asDriver(onErrorJustReturn: "Error")
