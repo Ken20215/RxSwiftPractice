@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TimerViewController.swift
 //  RxSwiftStopWhatchApp
 //
 //  Created by *石岡顕* on 2024/09/05.
@@ -10,12 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ViewController: UIViewController {
+final class TimerViewController: UIViewController {
     
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var resetButton: UIButton!
-    @IBOutlet private weak var datePicker: UIPickerView!
+    @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var countLabel: UILabel!
     let settingArray = [10, 20, 30, 40, 50, 60]
     let settingKey = "timer_value"
@@ -24,14 +24,14 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePicker.delegate = self
-        datePicker.dataSource = self
+        timePicker.delegate = self
+        timePicker.dataSource = self
         bind()
         timeSetting()
     }
 }
 
-extension ViewController {
+extension TimerViewController {
     func bind() {
         startButton.rx.tap
             .bind(to: viewModel.input.startButton)
@@ -60,13 +60,13 @@ extension ViewController {
         
         for row in 0..<settingArray.count {
             if settingArray[row] == initialTime {
-                datePicker.selectRow(row, inComponent: 0, animated: true)
+                timePicker.selectRow(row, inComponent: 0, animated: true)
             }
         }
     }
 }
 
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension TimerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // pickerの列を指定
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

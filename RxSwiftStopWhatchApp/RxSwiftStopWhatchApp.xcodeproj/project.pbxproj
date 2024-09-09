@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E45687032ADA3C3DF2ED909D /* Pods_RxSwiftStopWhatchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411F611D8441F14110EB2CDD /* Pods_RxSwiftStopWhatchApp.framework */; };
-		ED9909F62C89953200058292 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9909F52C89953200058292 /* ViewModel.swift */; };
+		ED9909F62C89953200058292 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9909F52C89953200058292 /* TimerViewModel.swift */; };
 		ED990A1A2C8AE39200058292 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED990A192C8AE39200058292 /* TimerManager.swift */; };
 		EDF436082C896BD800A6B863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF436072C896BD800A6B863 /* AppDelegate.swift */; };
 		EDF4360A2C896BD800A6B863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF436092C896BD800A6B863 /* SceneDelegate.swift */; };
-		EDF4360C2C896BD800A6B863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4360B2C896BD800A6B863 /* ViewController.swift */; };
+		EDF4360C2C896BD800A6B863 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4360B2C896BD800A6B863 /* TimerViewController.swift */; };
 		EDF4360F2C896BD800A6B863 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EDF4360E2C896BD800A6B863 /* Base */; };
 		EDF436112C896BD900A6B863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF436102C896BD900A6B863 /* Assets.xcassets */; };
 		EDF436142C896BD900A6B863 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EDF436132C896BD900A6B863 /* Base */; };
@@ -22,12 +22,12 @@
 		411F611D8441F14110EB2CDD /* Pods_RxSwiftStopWhatchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftStopWhatchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD3022D15C7D459DD68E389 /* Pods-RxSwiftStopWhatchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftStopWhatchApp.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftStopWhatchApp/Pods-RxSwiftStopWhatchApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0C3F6E9173139488EDF565 /* Pods-RxSwiftStopWhatchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftStopWhatchApp.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftStopWhatchApp/Pods-RxSwiftStopWhatchApp.release.xcconfig"; sourceTree = "<group>"; };
-		ED9909F52C89953200058292 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ED9909F52C89953200058292 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		ED990A192C8AE39200058292 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		EDF436042C896BD800A6B863 /* RxSwiftStopWhatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftStopWhatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF436072C896BD800A6B863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF436092C896BD800A6B863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EDF4360B2C896BD800A6B863 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDF4360B2C896BD800A6B863 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		EDF4360E2C896BD800A6B863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDF436102C896BD900A6B863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF436132C896BD900A6B863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,8 +87,8 @@
 				EDF436072C896BD800A6B863 /* AppDelegate.swift */,
 				EDF436092C896BD800A6B863 /* SceneDelegate.swift */,
 				ED990A192C8AE39200058292 /* TimerManager.swift */,
-				ED9909F52C89953200058292 /* ViewModel.swift */,
-				EDF4360B2C896BD800A6B863 /* ViewController.swift */,
+				ED9909F52C89953200058292 /* TimerViewModel.swift */,
+				EDF4360B2C896BD800A6B863 /* TimerViewController.swift */,
 				EDF4360D2C896BD800A6B863 /* Main.storyboard */,
 				EDF436102C896BD900A6B863 /* Assets.xcassets */,
 				EDF436122C896BD900A6B863 /* LaunchScreen.storyboard */,
@@ -212,10 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF4360C2C896BD800A6B863 /* ViewController.swift in Sources */,
+				EDF4360C2C896BD800A6B863 /* TimerViewController.swift in Sources */,
 				ED990A1A2C8AE39200058292 /* TimerManager.swift in Sources */,
 				EDF436082C896BD800A6B863 /* AppDelegate.swift in Sources */,
-				ED9909F62C89953200058292 /* ViewModel.swift in Sources */,
+				ED9909F62C89953200058292 /* TimerViewModel.swift in Sources */,
 				EDF4360A2C896BD800A6B863 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

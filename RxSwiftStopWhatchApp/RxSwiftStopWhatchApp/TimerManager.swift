@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class TimerManager {
+final class TimerManager {
     
     private var countdownTime: BehaviorRelay<TimeInterval>
     private var timer: Timer?

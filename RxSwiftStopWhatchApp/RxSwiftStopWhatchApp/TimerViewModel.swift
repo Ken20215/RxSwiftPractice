@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  TimerViewModel.swift
 //  RxSwiftStopWhatchApp
 //
 //  Created by *石岡顕* on 2024/09/05.
@@ -42,7 +42,6 @@ class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOu
     let disposeBag = DisposeBag()
     
     init() {
-        // TimerManagerを初期化し、countdownTimeを渡す
         timerManager = TimerManager(countdownTime: countdownTime)
         timerLabel = countdownTime
             .map { "残り \(Int($0)) 秒" }

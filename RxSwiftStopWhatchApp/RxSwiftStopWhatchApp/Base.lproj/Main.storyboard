@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RxSwiftStopWhatchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TimerViewController" customModule="RxSwiftStopWhatchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5Y-al-Sur">
-                                                <rect key="frame" x="0.0" y="45" width="320" height="216"/>
+                                                <rect key="frame" x="0.0" y="45.666666666666657" width="320" height="215.99999999999997"/>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
@@ -99,10 +99,10 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="G8Q-N3-jV8" id="aXv-ZT-Znv"/>
-                        <outlet property="datePicker" destination="x5Y-al-Sur" id="Thm-7S-S6K"/>
                         <outlet property="resetButton" destination="hE5-Sh-Tae" id="efj-Fb-K6F"/>
                         <outlet property="startButton" destination="rUJ-VP-DcL" id="bPj-vN-6Mv"/>
                         <outlet property="stopButton" destination="Rhe-xh-vtc" id="4Qc-Km-Adv"/>
+                        <outlet property="timePicker" destination="x5Y-al-Sur" id="LSR-MB-zaS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
