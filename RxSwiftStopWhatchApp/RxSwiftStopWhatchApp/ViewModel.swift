@@ -45,7 +45,7 @@ class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOu
         // TimerManagerを初期化し、countdownTimeを渡す
         timerManager = TimerManager(countdownTime: countdownTime)
         timerLabel = countdownTime
-            .map { "残り \($0) 秒" }
+            .map { "残り \(Int($0)) 秒" }
             .asDriver(onErrorJustReturn: "Error")
         
         // タイマーを開始する

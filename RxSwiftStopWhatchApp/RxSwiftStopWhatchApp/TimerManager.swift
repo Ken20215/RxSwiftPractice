@@ -28,7 +28,6 @@ class TimerManager {
                 return
             }
         }
-        count = 0
         // タイマーをスタート
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                      target: self,
