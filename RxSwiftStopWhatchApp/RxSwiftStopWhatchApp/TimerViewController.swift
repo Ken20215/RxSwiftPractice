@@ -26,13 +26,13 @@ final class TimerViewController: UIViewController {
         super.viewDidLoad()
         timePicker.delegate = self
         timePicker.dataSource = self
-        bind()
+        bind(to: viewModel)
         timeSetting()
     }
 }
 
-extension TimerViewController {
-    func bind() {
+private extension TimerViewController {
+    func bind(to viewModel: TimerViewModel) {
         startButton.rx.tap
             .bind(to: viewModel.input.startButton)
             .disposed(by: disposeBag)

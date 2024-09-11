@@ -26,7 +26,7 @@ protocol TimerViewModelType: AnyObject {
     var output: TimerViewModelOutputs { get }
 }
 
-class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOutputs {
+final class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOutputs {
     
     var input: TimerViewModelInputs { return self }
     var output: TimerViewModelOutputs { return self }
@@ -38,7 +38,7 @@ class TimerViewModel: TimerViewModelType, TimerViewModelInputs, TimerViewModelOu
     
     var timerLabel: Driver<String>
     
-    private let timerManager : TimerManager
+    private let timerManager: TimerManager
     let disposeBag = DisposeBag()
     
     init() {
