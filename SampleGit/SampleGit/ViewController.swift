@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ハローワールド")
+        print("rebase用のハローワールド")
     }
 
 
