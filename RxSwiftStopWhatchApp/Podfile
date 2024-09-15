@@ -8,5 +8,4 @@ target 'RxSwiftStopWhatchApp' do
   # Pods for RxSwiftStopWhatchApp
     pod 'RxSwift'
     pod 'RxCocoa' 
-    pod 'ActionSheetPicker-3.0'
 end
