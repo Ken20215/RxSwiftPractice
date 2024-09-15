@@ -12,11 +12,12 @@ import RxCocoa
 
 final class TimerViewController: UIViewController {
     
+    @IBOutlet private weak var countLabel: UILabel!
+    @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var resetButton: UIButton!
-    @IBOutlet private weak var timePicker: UIPickerView!
-    @IBOutlet private weak var countLabel: UILabel!
+   
     let settingArray = [10, 20, 30, 40, 50, 60]
     let settingKey = "timer_value"
     let viewModel = TimerViewModel()

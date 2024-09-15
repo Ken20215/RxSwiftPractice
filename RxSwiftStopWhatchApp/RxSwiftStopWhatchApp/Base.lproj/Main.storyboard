@@ -103,11 +103,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countLabel" destination="G8Q-N3-jV8" id="aXv-ZT-Znv"/>
+                        <outlet property="countLabel" destination="G8Q-N3-jV8" id="sSo-AD-PWv"/>
                         <outlet property="resetButton" destination="hE5-Sh-Tae" id="efj-Fb-K6F"/>
                         <outlet property="startButton" destination="rUJ-VP-DcL" id="bPj-vN-6Mv"/>
                         <outlet property="stopButton" destination="Rhe-xh-vtc" id="4Qc-Km-Adv"/>
-                        <outlet property="timePicker" destination="Z6W-Mj-7nN" id="ofB-QT-CkM"/>
+                        <outlet property="timePicker" destination="Z6W-Mj-7nN" id="7Q2-fB-5Gm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
