@@ -14,6 +14,7 @@
 		ED76C5622C9BE1CF000E7CB1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ED76C5612C9BE1CF000E7CB1 /* Base */; };
 		ED76C5642C9BE1D0000E7CB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED76C5632C9BE1D0000E7CB1 /* Assets.xcassets */; };
 		ED76C5672C9BE1D0000E7CB1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ED76C5662C9BE1D0000E7CB1 /* Base */; };
+		ED76C56F2C9BE5FA000E7CB1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED76C56E2C9BE5FA000E7CB1 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ED76C5632C9BE1D0000E7CB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED76C5662C9BE1D0000E7CB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED76C5682C9BE1D0000E7CB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED76C56E2C9BE5FA000E7CB1 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,6 @@
 				0CF3199864365F36D6CEE89B /* Pods-RxSwiftCompactMapPractice.debug.xcconfig */,
 				484407AAC4CA843B1467B072 /* Pods-RxSwiftCompactMapPractice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +84,7 @@
 			children = (
 				ED76C55A2C9BE1CF000E7CB1 /* AppDelegate.swift */,
 				ED76C55C2C9BE1CF000E7CB1 /* SceneDelegate.swift */,
+				ED76C56E2C9BE5FA000E7CB1 /* ViewModel.swift */,
 				ED76C55E2C9BE1CF000E7CB1 /* ViewController.swift */,
 				ED76C5602C9BE1CF000E7CB1 /* Main.storyboard */,
 				ED76C5632C9BE1D0000E7CB1 /* Assets.xcassets */,
@@ -209,6 +211,7 @@
 			files = (
 				ED76C55F2C9BE1CF000E7CB1 /* ViewController.swift in Sources */,
 				ED76C55B2C9BE1CF000E7CB1 /* AppDelegate.swift in Sources */,
+				ED76C56F2C9BE5FA000E7CB1 /* ViewModel.swift in Sources */,
 				ED76C55D2C9BE1CF000E7CB1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +365,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftCompactMapPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -390,6 +394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftCompactMapPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
