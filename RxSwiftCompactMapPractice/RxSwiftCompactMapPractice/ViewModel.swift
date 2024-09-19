@@ -37,6 +37,19 @@ class ViewModel: ViewModelInputs, ViewModelOutputs, ViewModelType {
     let disposeBag = DisposeBag()
     
     init() {
+        /*
+         MARK: filterとcompactMapの違い。
+         ***明確に違う箇所***
+         　　 filter ⇨ 各要素に対して条件が合うものだけを通過させて要素の型変換など行えない。
+         compactMap ⇨ 各要素に対して条件が合うものを通過させて要素の型変換を行い返却する。
+         
+
+         ***nilの扱い方***
+             filter ⇨ nilを扱うことができない。Observable＜Strign？＞のようなnilを含む可能性のあるデータストリームは扱えない。
+         compactMap ⇨ nilが来た場合は削除することができる。nilを除去し、フィルターを通った値をStrignやIntなどに変換することができる。
+         
+         使い分けとしては、nilがありそうな場合はアンラップを行なってからfilterを使用するか、そのままcompactMapを利用して型変換を行う。
+         */
         displayLabel = tapButton
             .withLatestFrom(inputTextFild)
             .compactMap { text in
