@@ -14,6 +14,8 @@
 		ED951E5A2C9D18E7005B8356 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ED951E592C9D18E7005B8356 /* Base */; };
 		ED951E5C2C9D18E8005B8356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED951E5B2C9D18E8005B8356 /* Assets.xcassets */; };
 		ED951E5F2C9D18E8005B8356 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ED951E5E2C9D18E8005B8356 /* Base */; };
+		ED951E672C9D1B0D005B8356 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED951E662C9D1B0D005B8356 /* WeatherModel.swift */; };
+		ED951E692C9D1C2F005B8356 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED951E682C9D1C2F005B8356 /* WeatherAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		ED951E5B2C9D18E8005B8356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED951E5E2C9D18E8005B8356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED951E602C9D18E8005B8356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED951E662C9D1B0D005B8356 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		ED951E682C9D1C2F005B8356 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,6 @@
 				AA8040B2EE583133A216870B /* Pods-RxSwiftWeatherAPIApp.debug.xcconfig */,
 				2A19344BEEBD83078842ACC9 /* Pods-RxSwiftWeatherAPIApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +86,8 @@
 			children = (
 				ED951E522C9D18E7005B8356 /* AppDelegate.swift */,
 				ED951E542C9D18E7005B8356 /* SceneDelegate.swift */,
+				ED951E662C9D1B0D005B8356 /* WeatherModel.swift */,
+				ED951E682C9D1C2F005B8356 /* WeatherAPI.swift */,
 				ED951E562C9D18E7005B8356 /* ViewController.swift */,
 				ED951E582C9D18E7005B8356 /* Main.storyboard */,
 				ED951E5B2C9D18E8005B8356 /* Assets.xcassets */,
@@ -209,6 +214,8 @@
 			files = (
 				ED951E572C9D18E7005B8356 /* ViewController.swift in Sources */,
 				ED951E532C9D18E7005B8356 /* AppDelegate.swift in Sources */,
+				ED951E692C9D1C2F005B8356 /* WeatherAPI.swift in Sources */,
+				ED951E672C9D1B0D005B8356 /* WeatherModel.swift in Sources */,
 				ED951E552C9D18E7005B8356 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +369,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftWeatherAPIApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -390,6 +398,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftWeatherAPIApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
