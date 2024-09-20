@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet private weak var displayLabel: UILabel!
     @IBOutlet private weak var inputTextFild: UITextField!
@@ -22,8 +22,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         bind()
     }
-    
-    
 }
 
 extension ViewController {
@@ -41,4 +39,3 @@ extension ViewController {
             .disposed(by: disposeBag)
     }
 }
-
