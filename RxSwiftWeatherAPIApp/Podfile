@@ -7,5 +7,6 @@ target 'RxSwiftWeatherAPIApp' do
 
   # Pods for RxSwiftWeatherAPIApp
     pod 'RxSwift' 
-    pod 'RxCocoa'  
+    pod 'RxCocoa'
+    pod 'Action'
 end

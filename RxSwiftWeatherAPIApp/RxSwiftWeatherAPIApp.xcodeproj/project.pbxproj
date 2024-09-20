@@ -16,6 +16,7 @@
 		ED951E5F2C9D18E8005B8356 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ED951E5E2C9D18E8005B8356 /* Base */; };
 		ED951E672C9D1B0D005B8356 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED951E662C9D1B0D005B8356 /* WeatherModel.swift */; };
 		ED951E692C9D1C2F005B8356 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED951E682C9D1C2F005B8356 /* WeatherAPI.swift */; };
+		ED951E6B2C9D4966005B8356 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED951E6A2C9D4966005B8356 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ED951E602C9D18E8005B8356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED951E662C9D1B0D005B8356 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		ED951E682C9D1C2F005B8356 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		ED951E6A2C9D4966005B8356 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				ED951E542C9D18E7005B8356 /* SceneDelegate.swift */,
 				ED951E662C9D1B0D005B8356 /* WeatherModel.swift */,
 				ED951E682C9D1C2F005B8356 /* WeatherAPI.swift */,
+				ED951E6A2C9D4966005B8356 /* WeatherViewModel.swift */,
 				ED951E562C9D18E7005B8356 /* ViewController.swift */,
 				ED951E582C9D18E7005B8356 /* Main.storyboard */,
 				ED951E5B2C9D18E8005B8356 /* Assets.xcassets */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED951E572C9D18E7005B8356 /* ViewController.swift in Sources */,
+				ED951E6B2C9D4966005B8356 /* WeatherViewModel.swift in Sources */,
 				ED951E532C9D18E7005B8356 /* AppDelegate.swift in Sources */,
 				ED951E692C9D1C2F005B8356 /* WeatherAPI.swift in Sources */,
 				ED951E672C9D1B0D005B8356 /* WeatherModel.swift in Sources */,
