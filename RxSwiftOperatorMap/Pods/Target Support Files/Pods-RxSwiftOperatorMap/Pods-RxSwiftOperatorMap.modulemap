@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftOperatorMap {
+  umbrella header "Pods-RxSwiftOperatorMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
