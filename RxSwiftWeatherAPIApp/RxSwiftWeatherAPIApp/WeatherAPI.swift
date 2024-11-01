@@ -7,40 +7,49 @@
 //
 
 import Foundation
+import RxSwift
 
-class WeatherAPI {
+protocol WeatherRepositoryProtocol {
+    func getWeather(for city: String) -> Single<Result<WeatherResponse, Error>>
+}
 
-    // 天気データを取得する関数
-    func fetchWeather(for city: String, completion: @escaping (WeatherResponse?) -> Void) {
+class WeatherAPI: WeatherRepositoryProtocol {
+    func getWeather(for city: String) -> Single<Result<WeatherResponse, Error>> {
         let apiKey = "4427c745cb0f68ef58840352e8f43ab2"
-        // URLを作成
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=metric") else {
-            completion(nil)
-            return
-        }
-        // URLSessionを使ってリクエストを作成
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error fetching weather data: \(error)")
-                completion(nil)
-                return
+        
+        return Single.create { single in
+            guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=metric") else {
+                single(.success(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"]))))
+                print("URLの取得成功")
+                return Disposables.create()
             }
             
-            guard let data = data else {
-                print("No data returned")
-                completion(nil)
-                return
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                print("URLSession\(String(describing: data))です")
+                if let error = error {
+                    single(.success(.failure(error)))
+                    return
+                }
+                
+                guard let data = data else {
+                    single(.success(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data returned"]))))
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(WeatherResponse.self, from: data)
+                    single(.success(.success(response)))
+                } catch {
+                    single(.success(.failure(error)))
+                }
             }
             
-            // JSONデコード
-            do {
-                let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
-                completion(weatherResponse)
-            } catch {
-                print("Error decoding weather data: \(error)")
-                completion(nil)
+            task.resume()
+            
+            return Disposables.create {
+                task.cancel()
             }
         }
-        task.resume()
     }
 }
